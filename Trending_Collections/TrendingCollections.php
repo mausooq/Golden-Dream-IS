@@ -69,7 +69,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="../CollectionItems/CollectionItems.php">
                                 <i class="bi bi-bookmarks"></i> Collection Items
                             </a>
                         </li>
