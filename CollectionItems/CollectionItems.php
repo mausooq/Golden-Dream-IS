@@ -1,16 +1,28 @@
+<?php
+include("../config.php");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT ci.*, c.collection_name 
+        FROM collection_items ci
+        JOIN collections c ON ci.collection_id = c.collection_id
+        ORDER BY ci.sort_order ASC";
+$result = $conn->query($sql);
+?>
+
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Collection Items - GD Gold & Diamonds</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<link rel="stylesheet" href="../style.css">
-
-<body>
-
+    <link rel="stylesheet" href="../style.css">
+  </head>
+  <body>
 
     <!-- Dashboard -->
     <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -23,9 +35,8 @@
                 </button>
                 <!-- Brand -->
                 <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-                    <img src="../images/gdlogo.png" alt="...">
+                    <img src="../images/gdlogo.png" alt="GD Gold & Diamonds">
                     GD Gold & Diamonds
-
                 </a>
                 <!-- User menu (mobile) -->
                 <div class="navbar-user d-lg-none">
@@ -57,57 +68,39 @@
                                 <i class="bi bi-house"></i> Dashboard
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link " href="../Trending_Collections/TrendingCollections.php">
-                                <i class="bi bi-bar-chart"></i>Trending Collections
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Trending_Collections/TrendingCollections.php">
+                                <i class="bi bi-bar-chart"></i> Trending Collections
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link " href="../Collections/Collections.php">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Collections/Collections.php">
                                 <i class="bi bi-chat"></i> Collections
-                                <span class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span>
                             </a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link active" href="CollectionItems.php">
                                 <i class="bi bi-bookmarks"></i> Collection Items
+                                <span class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">New</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-people"></i> Testimonials
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-people"></i> Social Media Links
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-people"></i> Popups
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-people"></i> Subscribers
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-people"></i> Faqs
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-people"></i> Users
-                            </a>
-                        </li>
+                        <!-- Add other menu items here -->
                     </ul>
                     <!-- Divider -->
                     <hr class="navbar-divider my-5 opacity-20">
-
+                    <!-- Navigation -->
+                    <ul class="navbar-nav mb-md-4">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-gear"></i> Settings
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-bell"></i> Notifications
+                            </a>
+                        </li>
+                    </ul>
                     <!-- Push content down -->
                     <div class="mt-auto"></div>
                     <!-- User (md) -->
@@ -135,22 +128,16 @@
                         <div class="row align-items-center">
                             <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                                 <!-- Title -->
-                                <h1 class="h2 mb-0 ls-tight"> Collections Items </h1>
+                                <h1 class="h2 mb-0 ls-tight">Collection Items</h1>
                             </div>
                             <!-- Actions -->
                             <div class="col-sm-6 col-12 text-sm-end">
                                 <div class="mx-n1">
-                                    <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
-                                        <span class=" pe-2">
-                                            <i class="bi bi-pencil"></i>
-                                        </span>
-                                        <span>Edit</span>
-                                    </a>
-                                    <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1">
-                                        <span class=" pe-2">
+                                    <a href="Add-CollectionItems.php" class="btn d-inline-flex btn-sm btn-primary mx-1">
+                                        <span class="pe-2">
                                             <i class="bi bi-plus"></i>
                                         </span>
-                                        <span>Create</span>
+                                        <span>Add New Item</span>
                                     </a>
                                 </div>
                             </div>
@@ -158,69 +145,78 @@
                         <!-- Nav -->
                         <ul class="nav nav-tabs mt-4 overflow-x border-0">
                             <li class="nav-item ">
-                                <a href="#" class="nav-link active">Collections</a>
+                                <a href="#" class="nav-link active">Collection Items</a>
                             </li>
                             <li class="nav-item">
-                                <a href="./Add-Collections.php" class="nav-link font-regular">Add New</a>
+                                <a href="./Add-CollectionItems.php" class="nav-link font-regular">Add New</a>
                             </li>
-
                         </ul>
                     </div>
                 </div>
             </header>
             <!-- Main -->
-            <?php
-            include("../config.php");
-
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-            $sql = "SELECT collection_name, collection_image_url, sort_order FROM collections ORDER BY sort_order ASC";
-            $result = $conn->query($sql);
-
-            ?>
-
-            <div class="container mt-5">
-                <div class="row">
-                    <?php
-                    if ($result === FALSE) {
-                        echo "<p>Error fetching data: " . $conn->error . "</p>";
-                    } elseif ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                    ?>
-                            <div class="col-md-4 mb-4">
-                                <div class="card h-100">
-                                    <img src="<?php echo htmlspecialchars($row['collection_image_url']); ?>"
-                                        class="card-img-top"
-                                        alt="<?php echo htmlspecialchars($row['collection_name']); ?>"
-                                        style="max-height: 200px; max-width: 100%; height: auto; object-fit: cover;">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?php echo htmlspecialchars($row['collection_name']); ?></h5>
-                                        <p class="card-text">Sort Order: <?php echo htmlspecialchars($row['sort_order']); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                    <?php
-                        }
-                    } else {
-                        echo "<p>No collections found.</p>";
-                    }
-                    ?>
+            <main class="py-6 bg-surface-secondary">
+                <div class="container-fluid">
+                    <div class="card shadow border-0 mb-7">
+                        <div class="card-header">
+                            <h5 class="mb-0">Collection Items</h5>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-nowrap">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Collection</th>
+                                        <th scope="col">Item Name</th>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Original Price</th>
+                                        <th scope="col">Selling Price</th>
+                                        <th scope="col">Sort Order</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    if ($result->num_rows > 0) {
+                                        while($row = $result->fetch_assoc()) {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $row['item_id']; ?></td>
+                                        <td><?php echo htmlspecialchars($row['collection_name']); ?></td>
+                                        <td><?php echo htmlspecialchars($row['item_name']); ?></td>
+                                        <td>
+                                            <img src="<?php echo htmlspecialchars($row['item_image_url']); ?>" alt="<?php echo htmlspecialchars($row['item_name']); ?>" style="width: 50px; height: 50px; object-fit: cover;">
+                                        </td>
+                                        <td><?php echo $row['original_price']; ?></td>
+                                        <td><?php echo $row['selling_price']; ?></td>
+                                        <td><?php echo $row['sort_order']; ?></td>
+                                        <td>
+                                            <a href="edit-CollectionItems.php?id=<?php echo $row['item_id']; ?>" class="btn btn-sm btn-neutral">Edit</a>
+                                            <a href="delete-CollectionItems.php?id=<?php echo $row['item_id']; ?>" class="btn btn-sm btn-square btn-neutral text-danger-hover" onclick="return confirm('Are you sure you want to delete this item?')">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='8'>No collection items found</td></tr>";
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer border-0 py-5">
+                            <span class="text-muted text-sm">Showing <?php echo $result->num_rows; ?> items</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <?php
-            $conn->close();
-            ?>
-
-            <!-- end of contents  -->
-
+            </main>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-
+  </body>
 </html>
+<?php
+$conn->close();
+?>
