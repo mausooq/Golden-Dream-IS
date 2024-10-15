@@ -84,6 +84,38 @@ $result = $conn->query($sql);
                                 <span class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">New</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-people"></i> Testimonials
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-people"></i> Social Media Links
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-people"></i> Popups
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-people"></i> Subscribers
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-people"></i> Faqs
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-people"></i> Users
+                            </a>
+                        </li>
+                    </ul>
                         <!-- Add other menu items here -->
                     </ul>
                     <!-- Divider -->
@@ -150,6 +182,7 @@ $result = $conn->query($sql);
                             <li class="nav-item">
                                 <a href="./Add-CollectionItems.php" class="nav-link font-regular">Add New</a>
                             </li>
+                            
                         </ul>
                     </div>
                 </div>
