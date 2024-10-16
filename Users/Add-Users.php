@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Social Media Links</title>
+    <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <link rel="stylesheet" href="../style.css">
   <body>
+
 
 <!-- Dashboard -->
 <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -52,18 +53,19 @@
                             <i class="bi bi-house"></i> Dashboard
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Trending_Collections/TrendingCollections.php">
+                    <li class="nav-item ">
+                        <a class="nav-link " href="#">
                             <i class="bi bi-bar-chart"></i> Trending Collections
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../Collections/Collections.php">
+                        <a class="nav-link" href="#">
                             <i class="bi bi-chat"></i> Collections
+                            <span class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../CollectionItems/CollectionItems.php">
+                        <a class="nav-link" href="#">
                             <i class="bi bi-bookmarks"></i> Collection Items
                         </a>
                     </li>
@@ -72,28 +74,29 @@
                             <i class="bi bi-people"></i> Testimonials
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-people"></i> Social Media Links
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-people"></i> Popups
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-people"></i> Subscribers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-people"></i> Faqs
+                        </a>
+                    </li>
                     <li class="nav-item active">
                         <a class="nav-link active" href="#">
-                            <i class="bi bi-share"></i> Social Media Links
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-bell"></i> Popups
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-envelope"></i> Subscribers
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-question-circle"></i> Faqs
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
                             <i class="bi bi-people"></i> Users
                         </a>
                     </li>
@@ -128,16 +131,22 @@
                     <div class="row align-items-center">
                         <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                             <!-- Title -->
-                            <h1 class="h2 mb-0 ls-tight">Social Media Links</h1>
+                            <h1 class="h2 mb-0 ls-tight">Users</h1>
                         </div>
                         <!-- Actions -->
                         <div class="col-sm-6 col-12 text-sm-end">
                             <div class="mx-n1">
-                                <a href="Add-Social_media.php" class="btn d-inline-flex btn-sm btn-primary mx-1">
+                                <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
+                                    <span class=" pe-2">
+                                        <i class="bi bi-pencil"></i>
+                                    </span>
+                                    <span>Edit</span>
+                                </a>
+                                <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1">
                                     <span class=" pe-2">
                                         <i class="bi bi-plus"></i>
                                     </span>
-                                    <span>Add New</span>
+                                    <span>Create</span>
                                 </a>
                             </div>
                         </div>
@@ -145,71 +154,47 @@
                     <!-- Nav -->
                     <ul class="nav nav-tabs mt-4 overflow-x border-0">
                         <li class="nav-item ">
-                            <a href="#" class="nav-link active">Social Media Links</a>
+                            <a href="./TrendingCollections.php" class="nav-link font-regular">Collections</a>
                         </li>
                         <li class="nav-item">
-                            <a href="Add-Social_media.php" class="nav-link font-regular">Add New</a>
+                            <a href="#" class="nav-link active">Add New</a>
                         </li>
+
                     </ul>
                 </div>
             </div>
         </header>
         <!-- Main -->
-        <?php
-        include("../config.php");
 
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
 
-        $sql = "SELECT id, platform_name, link_url, sort_order FROM social_media_links ORDER BY sort_order ASC";
-        $result = $conn->query($sql);
+        <!-- contents here  -->
 
-        ?>
+
 
         <div class="container mt-5">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>Platform Name</th>
-                        <th>Link URL</th>
-                        <th>Sort Order</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    if ($result === FALSE) {
-                        echo "<tr><td colspan='4'>Error fetching data: " . $conn->error . "</td></tr>";
-                    } elseif ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                    ?>
-                            <tr>
-                                <td><?php echo htmlspecialchars($row['platform_name']); ?></td>
-                                <td><a href="<?php echo htmlspecialchars($row['link_url']); ?>" target="_blank"><?php echo htmlspecialchars($row['link_url']); ?></a></td>
-                                <td><?php echo htmlspecialchars($row['sort_order']); ?></td>
-                                <td>
-                                    <a href="Edit-Social_media.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-primary">Edit</a>
-                                    <a href="Delete-Social_media.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this link?')">Delete</a>
-                                </td>
-                            </tr>
-                    <?php
-                        }
-                    } else {
-                        echo "<tr><td colspan='4'>No social media links found.</td></tr>";
-                    }
-                    ?>
-                </tbody>
-            </table>
-        </div>
+        <h2>Add User</h2>
+        <form action="insert_Users.php" method="POST">
+            <div class="mb-3">
+                <label for="fullname" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullname" name="fullname" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add User</button>
+        </form>
+    </div>
 
-        <?php
-        $conn->close();
-        ?>
+
+
+        <!-- end of contents  -->
 
     </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</div>    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
