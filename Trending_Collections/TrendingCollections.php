@@ -57,7 +57,7 @@
                                 <i class="bi bi-house"></i> Dashboard
                             </a>
                         </li>
-                        <li class="nav-item ">
+                        <li class="nav-item active">
                             <a class="nav-link active" href="TrendingCollections.php">
                                 <i class="bi bi-bar-chart"></i> Trending Collections
                             </a>
@@ -74,33 +74,33 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="../Testimonials/Testimonials.php">
                                 <i class="bi bi-people"></i> Testimonials
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="../Social Media/Social_media.php">
                                 <i class="bi bi-people"></i> Social Media Links
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="../Popups/Popups.php">
                                 <i class="bi bi-people"></i> Popups
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="../Subscribers/Subscribers.php">
                                 <i class="bi bi-people"></i> Subscribers
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="../Faqs/Faqs.php">
                                 <i class="bi bi-people"></i> Faqs
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="../Users/Users.php">
                                 <i class="bi bi-people"></i> Users
                             </a>
                         </li>

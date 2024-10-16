@@ -44,14 +44,15 @@
                 </div>
                 <!-- Collapse -->
                 <div class="collapse navbar-collapse" id="sidebarCollapse">
+                    <!-- Navigation -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="../index.php">
                                 <i class="bi bi-house"></i> Dashboard
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="TrendingCollections.php">
+                        <li class="nav-item ">
+                            <a class="nav-link " href="../Trending_Collections/TrendingCollections.php">
                                 <i class="bi bi-bar-chart"></i> Trending Collections
                             </a>
                         </li>
@@ -61,44 +62,49 @@
                                 <span class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../CollectionItems/CollectionItems.php">
+                        <li class="nav-item ">
+                            <a class="nav-link " href="../CollectionItems/CollectionItems.php">
                                 <i class="bi bi-bookmarks"></i> Collection Items
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="../Testimonials/Testimonials.php">
                                 <i class="bi bi-people"></i> Testimonials
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="../Social Media/Social_media.php">
                                 <i class="bi bi-people"></i> Social Media Links
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
+                        <li class="nav-item active ">
+                            <a class="nav-link active" href="../Popups/Popups.php">
                                 <i class="bi bi-people"></i> Popups
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="../Subscribers/Subscribers.php">
                                 <i class="bi bi-people"></i> Subscribers
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-people"></i> FAQs
+                            <a class="nav-link" href="../Faqs/Faqs.php">
+                                <i class="bi bi-people"></i> Faqs
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="../Users/Users.php">
                                 <i class="bi bi-people"></i> Users
                             </a>
                         </li>
                     </ul>
+                    <!-- Divider -->
                     <hr class="navbar-divider my-5 opacity-20">
+
+                    <!-- Push content down -->
                     <div class="mt-auto"></div>
+                    <!-- User (md) -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="#">

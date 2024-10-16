@@ -46,80 +46,80 @@
             </div>
             <!-- Collapse -->
             <div class="collapse navbar-collapse" id="sidebarCollapse">
-                <!-- Navigation -->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.php">
-                            <i class="bi bi-house"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link active" href="#">
-                            <i class="bi bi-bar-chart"></i> Trending Collections
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-chat"></i> Collections
-                            <span class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-bookmarks"></i> Collection Items
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-people"></i> Testimonials
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-people"></i> Social Media Links
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-people"></i> Popups
-                        </a>
-                    </li>
+                    <!-- Navigation -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.php">
+                                <i class="bi bi-house"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link active" href="TrendingCollections.php">
+                                <i class="bi bi-bar-chart"></i> Trending Collections
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Collections/Collections.php">
+                                <i class="bi bi-chat"></i> Collections
+                                <span class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../CollectionItems/CollectionItems.php">
+                                <i class="bi bi-bookmarks"></i> Collection Items
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Testimonials/Testimonials.php">
+                                <i class="bi bi-people"></i> Testimonials
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Social Media/Social_media.php">
+                                <i class="bi bi-people"></i> Social Media Links
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Popups/Popups.php">
+                                <i class="bi bi-people"></i> Popups
+                            </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-people"></i> Subscribers
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-people"></i> Faqs
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-people"></i> Users
-                        </a>
-                    </li>
-                </ul>
-                <!-- Divider -->
-                <hr class="navbar-divider my-5 opacity-20">
-               
-                <!-- Push content down -->
-                <div class="mt-auto"></div>
-                <!-- User (md) -->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-person-square"></i> Account
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-box-arrow-left"></i> Logout
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Subscribers/Subscribers.php">
+                                <i class="bi bi-people"></i> Subscribers
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Faqs/Faqs.php">
+                                <i class="bi bi-people"></i> Faqs
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Users/Users.php">
+                                <i class="bi bi-people"></i> Users
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Divider -->
+                    <hr class="navbar-divider my-5 opacity-20">
+
+                    <!-- Push content down -->
+                    <div class="mt-auto"></div>
+                    <!-- User (md) -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-person-square"></i> Account
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-box-arrow-left"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
         </div>
     </nav>
     <!-- Main content -->
@@ -131,7 +131,7 @@
                     <div class="row align-items-center">
                         <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                             <!-- Title -->
-                            <h1 class="h2 mb-0 ls-tight">Collections</h1>
+                            <h1 class="h2 mb-0 ls-tight">Trending Collections</h1>
                         </div>
                         <!-- Actions -->
                         <div class="col-sm-6 col-12 text-sm-end">
