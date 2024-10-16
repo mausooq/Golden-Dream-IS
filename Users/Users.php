@@ -1,4 +1,3 @@
-<!-- Collections.php -->
 <!doctype html>
 <html lang="en">
 
@@ -59,12 +58,12 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link " href="../Trending_Collections/TrendingCollections.php">
-                                <i class="bi bi-bar-chart"></i>Trending Collections
+                            <a class="nav-link active" href="TrendingCollections.php">
+                                <i class="bi bi-bar-chart"></i> Trending Collections
                             </a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link active" href="Collections.php">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Collections/Collections.php">
                                 <i class="bi bi-chat"></i> Collections
                                 <span class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span>
                             </a>
@@ -136,7 +135,7 @@
                         <div class="row align-items-center">
                             <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                                 <!-- Title -->
-                                <h1 class="h2 mb-0 ls-tight"> Collections</h1>
+                                <h1 class="h2 mb-0 ls-tight">Users</h1>
                             </div>
                             <!-- Actions -->
                             <div class="col-sm-6 col-12 text-sm-end">
@@ -159,68 +158,60 @@
                         <!-- Nav -->
                         <ul class="nav nav-tabs mt-4 overflow-x border-0">
                             <li class="nav-item ">
-                                <a href="#" class="nav-link active">Collections</a>
+                                <a href="#" class="nav-link active">Users</a>
                             </li>
                             <li class="nav-item">
-                                <a href="./Add-Collections.php" class="nav-link font-regular">Add New</a>
+                                <a href="./Add-Users.php" class="nav-link font-regular">Add New</a>
                             </li>
 
                         </ul>
                     </div>
                 </div>
             </header>
-            <!-- Main -->
-            <?php
-            include("../config.php");
+           <!-- Navigation Bar -->
+   
 
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+    <div class="container mt-5">
+        <h2>Users List</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                include("../config.php");
 
-            $sql = "SELECT collection_name, collection_image_url, sort_order FROM collections ORDER BY sort_order ASC";
-            $result = $conn->query($sql);
+                // Fetch users from the database
+                $sql = "SELECT * FROM users";
+                $result = $conn->query($sql);
 
-            ?>
-
-            <div class="container mt-5">
-                <div class="row">
-                    <?php
-                    if ($result === FALSE) {
-                        echo "<p>Error fetching data: " . $conn->error . "</p>";
-                    } elseif ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                    ?>
-                            <div class="col-md-4 mb-4">
-                                <div class="card h-100">
-                                    <img src="<?php echo htmlspecialchars($row['collection_image_url']); ?>"
-                                        class="card-img-top"
-                                        alt="<?php echo htmlspecialchars($row['collection_name']); ?>"
-                                        style="max-height: 200px; max-width: 100%; height: auto; object-fit: cover;">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?php echo htmlspecialchars($row['collection_name']); ?></h5>
-                                        <p class="card-text">Sort Order: <?php echo htmlspecialchars($row['sort_order']); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                    <?php
-                        }
-                    } else {
-                        echo "<p>No collections found.</p>";
+                if ($result->num_rows > 0) {
+                    // Output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>
+                                <td>" . $row['id'] . "</td>
+                                <td>" . htmlspecialchars($row['fullname']) . "</td>
+                                <td>" . htmlspecialchars($row['email']) . "</td>
+                                <td>" . $row['created_at'] . "</td>
+                                <td>" . $row['updated_at'] . "</td>
+                              </tr>";
                     }
-                    ?>
-                </div>
-            </div>
+                } else {
+                    echo "<tr><td colspan='5'>No users found.</td></tr>";
+                }
 
-            <?php
-            $conn->close();
-            ?>
-
-            <!-- end of contents  -->
-
-        </div>
+                $conn->close();
+                ?>
+            </tbody>
+        </table>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 

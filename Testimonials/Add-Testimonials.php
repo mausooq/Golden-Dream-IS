@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Social Media Links</title>
+    <title>Add Testimonial - GD Gold & Diamonds</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <link rel="stylesheet" href="../style.css">
@@ -20,8 +20,9 @@
             </button>
             <!-- Brand -->
             <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-            <img src="../images/gdlogo.png" alt="...">
-            GD Gold & Diamonds            </a>
+                <img src="../images/gdlogo.png" alt="GD Gold & Diamonds Logo">
+                GD Gold & Diamonds
+            </a>
             <!-- User menu (mobile) -->
             <div class="navbar-user d-lg-none">
                 <!-- Dropdown -->
@@ -67,47 +68,20 @@
                             <i class="bi bi-bookmarks"></i> Collection Items
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="#">
                             <i class="bi bi-people"></i> Testimonials
                         </a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link active" href="#">
-                            <i class="bi bi-share"></i> Social Media Links
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-bell"></i> Popups
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-envelope"></i> Subscribers
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-question-circle"></i> Faqs
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-people"></i> Users
-                        </a>
-                    </li>
+                    <!-- Add other menu items here -->
                 </ul>
                 <!-- Divider -->
                 <hr class="navbar-divider my-5 opacity-20">
-               
-                <!-- Push content down -->
-                <div class="mt-auto"></div>
-                <!-- User (md) -->
-                <ul class="navbar-nav">
+                <!-- Navigation -->
+                <ul class="navbar-nav mb-md-4">
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <i class="bi bi-person-square"></i> Account
+                            <i class="bi bi-gear"></i> Settings
                         </a>
                     </li>
                     <li class="nav-item">
@@ -128,88 +102,68 @@
                     <div class="row align-items-center">
                         <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                             <!-- Title -->
-                            <h1 class="h2 mb-0 ls-tight">Social Media Links</h1>
-                        </div>
-                        <!-- Actions -->
-                        <div class="col-sm-6 col-12 text-sm-end">
-                            <div class="mx-n1">
-                                <a href="Add-Social_media.php" class="btn d-inline-flex btn-sm btn-primary mx-1">
-                                    <span class=" pe-2">
-                                        <i class="bi bi-plus"></i>
-                                    </span>
-                                    <span>Add New</span>
-                                </a>
-                            </div>
+                            <h1 class="h2 mb-0 ls-tight">Add Testimonial</h1>
                         </div>
                     </div>
                     <!-- Nav -->
                     <ul class="nav nav-tabs mt-4 overflow-x border-0">
                         <li class="nav-item ">
-                            <a href="#" class="nav-link active">Social Media Links</a>
+                            <a href="./Testimonials.php" class="nav-link font-regular">All Testimonials</a>
                         </li>
                         <li class="nav-item">
-                            <a href="Add-Social_media.php" class="nav-link font-regular">Add New</a>
+                            <a href="#" class="nav-link active">Add New</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </header>
         <!-- Main -->
-        <?php
-        include("../config.php");
-
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-        $sql = "SELECT id, platform_name, link_url, sort_order FROM social_media_links ORDER BY sort_order ASC";
-        $result = $conn->query($sql);
-
-        ?>
-
-        <div class="container mt-5">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>Platform Name</th>
-                        <th>Link URL</th>
-                        <th>Sort Order</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    if ($result === FALSE) {
-                        echo "<tr><td colspan='4'>Error fetching data: " . $conn->error . "</td></tr>";
-                    } elseif ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                    ?>
-                            <tr>
-                                <td><?php echo htmlspecialchars($row['platform_name']); ?></td>
-                                <td><a href="<?php echo htmlspecialchars($row['link_url']); ?>" target="_blank"><?php echo htmlspecialchars($row['link_url']); ?></a></td>
-                                <td><?php echo htmlspecialchars($row['sort_order']); ?></td>
-                                <td>
-                                    <a href="Edit-Social_media.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-primary">Edit</a>
-                                    <a href="Delete-Social_media.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this link?')">Delete</a>
-                                </td>
-                            </tr>
-                    <?php
-                        }
-                    } else {
-                        echo "<tr><td colspan='4'>No social media links found.</td></tr>";
-                    }
-                    ?>
-                </tbody>
-            </table>
-        </div>
-
-        <?php
-        $conn->close();
-        ?>
-
+        <main class="py-6 bg-surface-secondary">
+            <div class="container-fluid">
+                <!-- Card stats -->
+                <div class="row g-6 mb-6">
+                    <div class="col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">Add New Testimonial</h5>
+                                <form action="insert_testimonial.php" method="POST" enctype="multipart/form-data">
+                                    <div class="mb-3">
+                                        <label for="customerName" class="form-label">Customer Name</label>
+                                        <input type="text" class="form-control" id="customerName" name="customer_name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="feedback" class="form-label">Feedback</label>
+                                        <textarea class="form-control" id="feedback" name="feedback" rows="3" required></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="rating" class="form-label">Rating</label>
+                                        <select class="form-select" id="rating" name="rating" required>
+                                            <option value="">Select rating</option>
+                                            <option value="1">1 Star</option>
+                                            <option value="2">2 Stars</option>
+                                            <option value="3">3 Stars</option>
+                                            <option value="4">4 Stars</option>
+                                            <option value="5">5 Stars</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="customerImage" class="form-label">Customer Image</label>
+                                        <input type="file" class="form-control" id="customerImage" name="customer_image" accept="image/*">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="sortOrder" class="form-label">Sort Order</label>
+                                        <input type="number" class="form-control" id="sortOrder" name="sort_order" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Testimonial</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>

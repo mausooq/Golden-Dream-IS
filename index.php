@@ -96,7 +96,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="./Users/Users.php">
                             <i class="bi bi-people"></i> Users
                         </a>
                     </li>
