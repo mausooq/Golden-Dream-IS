@@ -188,7 +188,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo htmlspecialchars($row['collection_name']); ?></h5>
                                         <p class="card-text">Sort Order: <?php echo htmlspecialchars($row['sort_order']); ?></p>
-                                        <a href="Edit-TrendingCollections.php?id=<?php echo $row[]; ?>" class="btn btn-primary">Edit</a>
+                                        <a href="Edit-TrendingCollections.php?id=<?php echo $row['collection_id']; ?>" class="btn btn-primary">Edit</a>
                                     </div>
                                 </div>
                             </div>
