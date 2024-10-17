@@ -1,17 +1,13 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Trending Collections</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
 </head>
-<link rel="stylesheet" href="../style.css">
-
 <body>
-
-
     <!-- Dashboard -->
     <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
         <!-- Vertical Navbar -->
@@ -25,7 +21,6 @@
                 <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
                     <img src="../images/gdlogo.png" alt="...">
                     GD Gold & Diamonds
-
                 </a>
                 <!-- User menu (mobile) -->
                 <div class="navbar-user d-lg-none">
@@ -57,7 +52,11 @@
                                 <i class="bi bi-house"></i> Dashboard
                             </a>
                         </li>
+<<<<<<< Updated upstream
                         <li class="nav-item active">
+=======
+                        <li class="nav-item">
+>>>>>>> Stashed changes
                             <a class="nav-link active" href="TrendingCollections.php">
                                 <i class="bi bi-bar-chart"></i> Trending Collections
                             </a>
@@ -88,7 +87,6 @@
                                 <i class="bi bi-people"></i> Popups
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link" href="../Subscribers/Subscribers.php">
                                 <i class="bi bi-people"></i> Subscribers
@@ -107,7 +105,6 @@
                     </ul>
                     <!-- Divider -->
                     <hr class="navbar-divider my-5 opacity-20">
-
                     <!-- Push content down -->
                     <div class="mt-auto"></div>
                     <!-- User (md) -->
@@ -140,14 +137,8 @@
                             <!-- Actions -->
                             <div class="col-sm-6 col-12 text-sm-end">
                                 <div class="mx-n1">
-                                    <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
-                                        <span class=" pe-2">
-                                            <i class="bi bi-pencil"></i>
-                                        </span>
-                                        <span>Edit</span>
-                                    </a>
-                                    <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1">
-                                        <span class=" pe-2">
+                                    <a href="./Add-TrendingCollections.php" class="btn d-inline-flex btn-sm btn-primary mx-1">
+                                        <span class="pe-2">
                                             <i class="bi bi-plus"></i>
                                         </span>
                                         <span>Create</span>
@@ -163,7 +154,6 @@
                             <li class="nav-item">
                                 <a href="./Add-TrendingCollections.php" class="nav-link font-regular">Add New</a>
                             </li>
-
                         </ul>
                     </div>
                 </div>
@@ -177,9 +167,8 @@
                 die("Connection failed: " . $conn->connect_error);
             }
 
-            $sql = "SELECT collection_name, collection_image_url, sort_order FROM trending_collections ORDER BY sort_order ASC";
+            $sql = "SELECT collection_id, collection_name, collection_image_url, sort_order FROM trending_collections ORDER BY sort_order ASC";
             $result = $conn->query($sql);
-
             ?>
 
             <div class="container mt-5">
@@ -199,10 +188,10 @@
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo htmlspecialchars($row['collection_name']); ?></h5>
                                         <p class="card-text">Sort Order: <?php echo htmlspecialchars($row['sort_order']); ?></p>
+                                        <a href="Edit-TrendingCollections.php?id=<?php echo $row[]; ?>" class="btn btn-primary">Edit</a>
                                     </div>
                                 </div>
                             </div>
-
                     <?php
                         }
                     } else {
@@ -215,12 +204,8 @@
             <?php
             $conn->close();
             ?>
-
-            <!-- end of contents  -->
-
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
-
 </html>

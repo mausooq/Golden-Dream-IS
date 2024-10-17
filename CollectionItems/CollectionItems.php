@@ -210,7 +210,7 @@ $result = $conn->query($sql);
                                         <td><?php echo $row['selling_price']; ?></td>
                                         <td><?php echo $row['sort_order']; ?></td>
                                         <td>
-                                            <a href="edit-CollectionItems.php?id=<?php echo $row['item_id']; ?>" class="btn btn-sm btn-neutral">Edit</a>
+                                            <a href="Edit-CollectionItems.php?id=<?php echo $row['item_id']; ?>" class="btn btn-sm btn-neutral">Edit</a>
                                             <a href="delete-CollectionItems.php?id=<?php echo $row['item_id']; ?>" class="btn btn-sm btn-square btn-neutral text-danger-hover" onclick="return confirm('Are you sure you want to delete this item?')">
                                                 <i class="bi bi-trash"></i>
                                             </a>

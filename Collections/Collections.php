@@ -178,12 +178,12 @@
                 die("Connection failed: " . $conn->connect_error);
             }
 
-            $sql = "SELECT collection_name, collection_image_url, sort_order FROM collections ORDER BY sort_order ASC";
+            $sql = "SELECT collection_id, collection_name, collection_image_url, sort_order FROM collections ORDER BY sort_order ASC";
             $result = $conn->query($sql);
 
             ?>
 
-            <div class="container mt-5">
+             <div class="container mt-5">
                 <div class="row">
                     <?php
                     if ($result === FALSE) {
@@ -200,10 +200,10 @@
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo htmlspecialchars($row['collection_name']); ?></h5>
                                         <p class="card-text">Sort Order: <?php echo htmlspecialchars($row['sort_order']); ?></p>
+                                        <a href="Edit-Collections.php?id=<?php echo $row['collection_id']; ?>" class="btn btn-primary">Edit</a>
                                     </div>
                                 </div>
                             </div>
-
                     <?php
                         }
                     } else {
@@ -212,16 +212,12 @@
                     ?>
                 </div>
             </div>
-
-            <?php
-            $conn->close();
-            ?>
-
-            <!-- end of contents  -->
-
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
-
 </html>
+
+<?php
+$conn->close();
+?>
