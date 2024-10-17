@@ -1,3 +1,4 @@
+<!-- insert_trendingCollections.php -->
 <?php
 include("../config.php"); 
 
