@@ -52,11 +52,8 @@
                                 <i class="bi bi-house"></i> Dashboard
                             </a>
                         </li>
-<<<<<<< Updated upstream
                         <li class="nav-item active">
-=======
                         <li class="nav-item">
->>>>>>> Stashed changes
                             <a class="nav-link active" href="TrendingCollections.php">
                                 <i class="bi bi-bar-chart"></i> Trending Collections
                             </a>
